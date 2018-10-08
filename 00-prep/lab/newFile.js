@@ -1,0 +1,3 @@
+let myFunc = () => {
+    return 'Awesome';
+}
