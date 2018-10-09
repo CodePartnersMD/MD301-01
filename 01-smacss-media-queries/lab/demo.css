@@ -1,0 +1,69 @@
+body{
+    width: 100%;
+}
+@media(min-width:768px){
+    nav{
+        width: 100%;
+        background-color: blueviolet;
+        height: 100px;
+    }
+    aside{
+        width: 20%;
+        height: 600px;
+        background-color: gold;
+        float: left;
+    }
+    .main{
+        width: 80%;
+        height: 600px;
+        float: left;
+    }
+    article{
+        width: 50%;
+        height: 200px;
+        float: left;
+        background-color: plum;
+    }
+    sports{
+        width: 25%;
+        height: 250px;
+        float: left;
+        background-color: lightsalmon;
+    }
+    footer{
+        width: 100%;
+        height: 150px;
+        float: left;
+        background-color: powderblue;
+    }
+}
+
+@media(max-width:768px){
+    nav{
+        width: 100%;
+        height: 75px;
+        background-color: blueviolet;
+    }
+    aside{
+        width: 100%;
+        height: 175px;
+        background-color: gold;
+    }
+    article{
+        width: 100%;
+        height: 125px;
+        background-color: plum;
+    }
+    sports{
+        width: 50%;
+        height: 250px;
+        float: left;
+        background-color: lightsalmon;
+    }
+    footer{
+        width: 100%;
+        height: 80px;
+        background-color: powderblue;
+        float: left;
+    }
+}
