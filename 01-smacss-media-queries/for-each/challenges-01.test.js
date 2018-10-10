@@ -35,13 +35,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  return arr[value];
-}
+  arr.push(value);
+};
 
 const addNumbers = (num, arr, times, callback) => {
-  callback(num);
-  callback(arr);
-  callback(times);
+  for(let i=0; i< times; i++){
+    callback(arr,num)
+  }
+  return arr
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,10 +59,17 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   // Solution code here...
+  if(num % 3 === 2) {
+    arr.pop()
+  }
 }
 
 const removeElements = (arr, callback) => {
   // Solution code here...
+  for(let i = 0; i < arr.length; i++) {
+    callback(arr[i],arr)
+  }
+  return arr
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,6 +80,8 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
+  arr.forEach((val) => {callback(val,arr)})
+  return arr
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,6 +96,12 @@ This anonymous function should accept up to three arguments(not needed): the ele
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach((val) => {
+    if(val % 3 === 2){
+      arr.pop()
+    }
+  })
+  return arr
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -107,6 +123,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let list = []
+  availableItems.forEach(val =>{
+    if(val.available) {
+      list.push(val.name)
+    }
+  })
+  return list
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,6 +148,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let finalArr = []
+  arr.forEach(val => {
+    if(val % 15 === 0) {
+      finalArr.push('Fizz Buzz')
+    } else if(val % 5 === 0) {
+      finalArr.push('Buzz')
+    } else if(val % 3 === 0) {
+      finalArr.push('Fizz')
+    } else {
+      finalArr.push(val)
+    }
+  })
+  return finalArr
 }
 
 /* ------------------------------------------------------------------------------------------------
