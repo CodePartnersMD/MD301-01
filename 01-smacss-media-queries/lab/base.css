@@ -1,0 +1,27 @@
+body{
+    background-color: lightblue;
+}
+nav{
+    background-color: white;
+}
+aside {
+    background-color: grey;
+}
+.section-container {
+    background-color: pink;
+}
+section {
+    background-color:purple; 
+}
+.four-boxes {
+    background-color: blue;
+}
+article {
+    background-color: yellow;
+}
+.four-boxes article {
+    background-color: white;
+}
+footer {
+    background-color: green;
+}
