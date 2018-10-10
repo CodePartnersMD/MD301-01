@@ -15,8 +15,7 @@ const greeting = word => {
 
 
 const speaker = (message, callback) => {
-    return callback(message);
-
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,11 +35,13 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  return arr[value];
 }
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  callback(num);
+  callback(arr);
+  callback(times);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,7 +81,7 @@ Write a function named removeWithAnon that produces the same output as challenge
 
 This function should use forEach again, but rather than taking in a callback as an argument, define an anonymous function as the argument to forEach.
 
-This anonymous function should accept up to three arguments: the element, the index, and the array.
+This anonymous function should accept up to three arguments(not needed): the element, the index, and the array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
