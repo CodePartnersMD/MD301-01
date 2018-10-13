@@ -46,7 +46,7 @@ Then the photo gallery should display all of the images in the gallery
 
 #### How are we implementing it?
 
-- Use AJAX, specifically `$.get()`, to read the provided JSON file.
+- Use AJAX, specifically `$.get()`, to read the json file at `https://raw.githubusercontent.com/CodePartnersMD/MD301-01/master/02-jquery-selectors-events/lab/page-1.json`.
 - Each object should become a new instance of a constructor function. Refer to the data to determine the necessary properties.
 - Use jQuery to make a copy of the HTML template of the photo component. For each object, fill in the duplicated template with its properties, then append the copy to the DOM.
 
