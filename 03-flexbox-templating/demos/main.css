@@ -1,0 +1,15 @@
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center;
+}
+
+img {
+  width: 400px;
+}
+
+section {
+  margin: 4em;
+}
