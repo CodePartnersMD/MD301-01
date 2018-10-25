@@ -4,23 +4,25 @@ Read through this code as if you are the interpreter. Find all of the mistakes i
 ## index.html
 
 ```
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Click tracker
+    <title>Click tracker</title>
   </head>
   <body>
     <div id="click">
       <p>Click me</p>
     </div>
   </body>
+  <script src='app.js'></script>
 </html>
 ```
 
 ## app.js
 
 ```
-$(.click).on('change', 'div', function() => {
-  var counter = '0';
-  $(p).on('click', counter++);
+  var counter = 0;
+$('#click').on('change', () => {
+  counter++;
 })
 ```
