@@ -1,37 +1,22 @@
 ```javascript
-let person =
-  {
-    'name':'John',
-    'role':'Dad',
-    'interests': ['Coaching','Teaching'],
-  };
+let studentsArr = ['Patrice', 'Mandana', 'Jason']
+  for(let student of studentsArr) {
+    console.log(student)
+  }
 
-console.log(person.name);
-
-// for ... in
-for( let property in person ) {
-  console.log(property, person[property]);
+let StudentsObj =  {
+  name: 'Brittany',
+  employer: 'DAI',
+  role: 'Project Manager'
 }
 
-// Object.keys
-let properties = Object.keys(person);
-properties.forEach( property => {
-  console.log(property, person[property]);
-});
+for(let student in StudentsObj) {
+  console.log(StudentsObj[student])
+}
 
-Object.keys(person).forEach( property => {
-  console.log(property, person[property]);
-});
+Object.keys(StudentsObj)
 
-// Object.values
-console.log(Object.values(person));
+Object.values(StudentsObj)
 
-Object.values(person).forEach(value => {
-  console.log(value);
-});
-
-// Object.entries
-Object.entries(person).forEach(entry => {
-  console.log(entry);
-});
+Object.entries(StudentsObj)
 ```
