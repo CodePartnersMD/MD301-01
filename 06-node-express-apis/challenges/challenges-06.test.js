@@ -12,8 +12,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
   finalExam: true };
 
 const getCourseKeys = (obj) => {
-  return Object.keys(obj)
-
+  // Solution code here...
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,11 +68,7 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  let count = 0
-  for(let char in arr) {
-    count++
-  }
-  return count
+  // Solution code here...
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -84,9 +79,7 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  for(let val of arr) {
-    houses.push(val.house)
-  }
+  // Solution code here...
   return houses;
 }
 
@@ -103,13 +96,7 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  let hasChildren
-  Object.values(arr).forEach(child => {
-    if(child.name === character) {
-      hasChildren = child.children.length > 0 ? true : false
-    }
-  })
-  return hasChildren
+  // Solution code here...
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,15 +108,7 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  let hasChildren
-  Object.entries(arr).forEach(item => {
-    item.forEach(child => {
-      if(child.name === character) {
-        hasChildren = child.children.length > 0 ? true : false
-      }
-    })
-  })
-  return hasChildren
+  // Solution code here...
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,17 +122,8 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------ */
 
 const houseSize = (arr) => {
-  let sizes = []
-  for(let char of arr) {
-    let housePopulation = 1
-    char.spouse ? housePopulation += 1 : housePopulation += 0
-    housePopulation += char.children.length
-    let houseObj = {
-      house: char.house,
-      members: housePopulation
-    }
-    sizes.push(houseObj)
-  }
+  const sizes = [];
+  // Solution code here...
   return sizes;
 }
 
@@ -238,7 +208,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-describe.only('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should not include any deceased spouses', () => {
     expect(houseSurvivors(characters)).toStrictEqual([ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
   });
