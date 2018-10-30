@@ -19,7 +19,7 @@ app.use(cors())
 
 // listen for a get request at route '/' and send back the response
 app.get('/location', (request, response) => {
-  const url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDcJVutG4txF0K0NBSMOsY8KRs60VqNJ3U&address=7600+Wisconsin+ave+bethesda+md'
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?${GEOCODE_API_KEY}&address=7600+Wisconsin+ave+bethesda+md`
   superagent.get(url)
     .then(res => response.send({
       latitude: res.body.results[0].geometry.location.lat,
