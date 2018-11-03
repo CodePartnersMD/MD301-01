@@ -56,7 +56,7 @@ function Weather(weatherObj) {
 }
 
 function getLocation(query) {
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?${process.env.GEOCODE_API_KEY}=${query}`
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GEOCODE_API_KEY}&address=${query}`
 
   return superagent.get(url)
     .then(res => {
