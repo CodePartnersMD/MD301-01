@@ -42,6 +42,7 @@ const PORT = process.env.PORT || 3000
 //tell express to listen on the specified port
 app.listen(PORT, () => {
   console.log(`Server is now running on port ${PORT}`)
+  console.log(process.env.GEOCODE_API_KEY)
 })
 
 function Location(lat, long) {
