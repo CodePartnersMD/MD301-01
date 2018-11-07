@@ -21,8 +21,10 @@ app.use(cors())
 app.get('/location', (request, response) => {
   getLocation(request.query.data)
     .then(res => response.send(res))
-    .catch(err => response.send(err))
+    .catch(err => response.send(handleError(err)))
 })
+
+app.get('/weather', getWeather)
 
 //listen for a get request at any route, this is a catch all, and send back an error
 app.get('*', (request, response) => {
@@ -47,11 +49,34 @@ function Location(lat, long) {
   this.longitude = long
 }
 
+function Weather(weatherObj) {
+  this.summary = weatherObj.currently.summary
+  this.temp = weatherObj.currently.temperature
+  this.humidity = weatherObj.currently.humidity
+}
+
 function getLocation(query) {
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDcJVutG4txF0K0NBSMOsY8KRs60VqNJ3U&address=${query}`
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GEOCODE_API_KEY}&address=${query}`
 
   return superagent.get(url)
     .then(res => {
       return new Location(res.body.results[0].geometry.location.lat,res.body.results[0].geometry.location.lng)
     })
 }
+
+function getWeather(request, response){
+  const url = `https://api.darksky.net/forecast/${process.env.WEATHER_API_KEY}/${request.query.data}`
+
+  superagent.get(url)
+    .then(res => response.send(new Weather(res.body)))
+    .catch(err => response.send(handleError(err)))
+}
+
+let handleError = err => ({error: err, message: 'Something Broke!!!'})
+
+// same thing as above 
+// function handleError(err) {
+//   return {error: err, message: 'Something Broke!!!'}
+// }
+
+

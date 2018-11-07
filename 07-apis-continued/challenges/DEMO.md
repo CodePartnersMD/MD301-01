@@ -2,21 +2,17 @@
 // array.map demo
 
 const people = [
-  { name: 'John', role: 'Dad' },
-  { name: 'Cathy', role: 'Mom' },
-  { name: 'Zach', role: 'Kid' },
-  { name: 'Allie', role: 'Kid' },
+  { name: 'Brittany', role: 'student' },
+  { name: 'Jason', role: 'student' },
+  { name: 'Zach', role: 'teacher' },
+  { name: 'Greg', role: 'student' },
 ];
 
-const nums = [1,2,3,4,5,6,7];
+people.filter(val => val.role === 'teacher')
 
-for(let i = 0; i < nums.length; i++ ) {
-  nums[i] = nums[i] * nums[i];
-}
+people.map(val => val.name = val.name.toUpperCase())
 
-const squares = nums.map( (value) => {
-  return { num: value, squared: value * value };
-});
+people.map(val => console.log(val.name))
 
-const addOne = nums.map(x=>x + 1);
+
 ```
