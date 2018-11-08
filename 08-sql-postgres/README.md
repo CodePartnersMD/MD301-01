@@ -21,4 +21,4 @@ Today we are going to be adding a persistence layer in the form of a SQL databas
 As a result of completing Lecture 8 of Code 301, students will:
 - Identify when to persist and cache data in a database and whether the database should be relational or non-relational
 - Understand how to create a schema to model their data, including modeling the relationships between several tables
-- Write SQL queries to create, read, update, and delete records from a local database using PostgreSQL, a database management system
+- Write NoSQL queries to create, read, update, and delete mongoDB with Mlab
