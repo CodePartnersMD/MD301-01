@@ -39,7 +39,7 @@ app.use(cors())
 app.get('/location', (request, response) => {
   getLocation(request.query.data)
     .then(res => response.send(res))
-    .catch(err => response.send(err))
+    .catch(err => response.send(handleError(err)))
 })
 
 app.get('/weather', getWeather)
@@ -120,7 +120,10 @@ function getWeather(request, response) {
       let resBody = res.body.currently
       return response.send(new Weather(resBody.summary, resBody.temperature, resBody.humidity))
     })
+    .catch(err => response.send(handleError(err)))
 }
+
+let handleError = err => ({error: err, message: 'Something Broke!!!'})
 
 
 
