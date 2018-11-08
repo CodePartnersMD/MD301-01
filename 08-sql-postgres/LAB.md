@@ -2,11 +2,9 @@
 
 ## Resources
 
-[SQL Syntax Cheatsheet](./cheatsheets/sql.md)
+[Mongoose Docs](https://mongoosejs.com/)
 
-[PostgreSQL Shell Cheatsheet](./cheatsheets/postgres-shell.md)
-
-[PostgreSQL Docs](https://www.postgresql.org/docs/)
+[MLab cloud Based DB](https://mlab.com/)
 
 ## Configuration
 

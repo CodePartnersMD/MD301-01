@@ -75,7 +75,7 @@ function getWeather(request, response){
 
 let handleError = err => ({error: err, message: 'Something Broke!!!'})
 
-// same thing as above 
+// same thing as above
 // function handleError(err) {
 //   return {error: err, message: 'Something Broke!!!'}
 // }
