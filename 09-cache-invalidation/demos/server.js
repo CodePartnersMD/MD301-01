@@ -92,24 +92,24 @@ function getLocation(query) {
   return Location.findOne({address: query})
   .then(res => {
     //if the collection exists, send it back to the client
-    if(res) {
-      return res
-    } else {
-    //if it does not exist, send a superagent request to the API and get the lat/long for the query location
-    return superagent.get(url)
-      .then(res => {
-        //once a response is received instantiate a new Location model based on our locationSchema blueprint
-        let currentLocation = new Location({
-          address: query,
-          latitude: res.body.results[0].geometry.location.lat,
-          longitude: res.body.results[0].geometry.location.lng
-        })
-        //save our new model to our db
-        currentLocation.save()
+      if(res) {
         return res
-      })
-    }
-  })
+      } else {
+      //if it does not exist, send a superagent request to the API and get the lat/long for the query location
+        return superagent.get(url)
+          .then(res => {
+            //once a response is received instantiate a new Location model based on our locationSchema blueprint
+            let currentLocation = new Location({
+              address: query,
+              latitude: res.body.results[0].geometry.location.lat,
+              longitude: res.body.results[0].geometry.location.lng
+            })
+            //save our new model to our db
+            currentLocation.save()
+            return res
+          })
+      }
+    })
 }
 
 function getWeather(request, response) {
