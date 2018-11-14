@@ -9,26 +9,26 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  // let heroes = [
-  //   { name: 'Thanos', role: 'Villian' },
-  //   { name: 'Thor', role: 'Hero' },
-  //   { name: 'Black Panther', role: 'Hero' }
-  // ]
-
   res.render('pages/index')
 })
 
-app.get('/search', (req, res) => {
-  const data = req.body.searches
-
-  const url = `https://www.googleapis.com/books/v1/volumes?q=${data}` 
-  console.log(data)
+app.post('/search', (req, res) => {
+  const data = req.body
+  let url = `https://www.googleapis.com/books/v1/volumes?q=+`
+  req.body.param === 'title' ? url += `intitle:${data.searchText}` : url += `inauthor:${data.searchText}`
   superagent.get(url)
-    .then(book => res.send(book.body))
+    .then(book => {
+      let booksArr = book.body.items.map(val => {
+        return new Book(val)
+      })
+      res.render('pages/searchResults', { books: booksArr})
+    })
+    .catch(err => res.send({error: err, message: 'Something Broke, do better!'}))
 })
 
 app.get('*', (req, res) => {
@@ -38,4 +38,9 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is now running on Port ${PORT}`)
 })
+
+const Book = function(book) {
+  this.title = book.volumeInfo.title
+  this.author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'none'
+}
 
