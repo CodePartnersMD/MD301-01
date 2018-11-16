@@ -90,7 +90,7 @@ function getLocation(query) {
   const url = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GEOCODE_API_KEY}&address=${query}`
   //use the findOne method to look in our Location collection to see if the key/value pair exists in our collection
   return Location.findOne({address: query})
-  .then(res => {
+    .then(res => {
     //if the collection exists, send it back to the client
       if(res) {
         return res
