@@ -1,0 +1,53 @@
+
+  nav, article, aside, footer section {
+    margin: 0 auto;
+    width: 900px;
+  }
+  
+  nav {
+    margin-top: 25px;
+  }
+
+  h2 {
+    margin-top: 50px;
+  }
+
+  hr {
+    clear: both;
+    border: 0;
+    height: 13px;
+  }
+  main p {
+    margin: 20px 0px;
+  }
+  aside {
+    padding-top: 30px;
+    padding-bottom: 60px
+  }
+  
+  aside img {
+    float: left;
+  }
+
+  aside h3 {
+    padding-left: 100px;
+    padding-bottom: 10px;
+  }
+
+  aside p {
+    padding-left: 100px;
+    width: 65%;
+    margin: 0;
+  }
+
+  aside button {
+    float: right;
+    padding: 15px 40px;
+  }
+  section hr {
+    height: 0;
+  }
+
+  footer section p{
+    padding: 50px 0;
+  }
